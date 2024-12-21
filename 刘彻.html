@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘彻</title>
+    <link rel="stylesheet" href="./img/font/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            background-color: #4a0202e2;
+            overflow: hidden;
+        }
+
+        .iconfont {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 27%;
+            z-index: 999;
+            font: 900 80px '';
+            color: #fff;
+        }
+
+        #up-btn {
+            top: 5%;
+        }
+
+        #down-btn {
+            bottom: 5%;
+        }
+
+        #content {
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            left: 15%;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            transition: transform .8s ease-in-out;
+        }
+
+        .card-time {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-size: 50px;
+            font-weight: 500;
+            padding-bottom: 10px;
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+        }
+
+        .card-passage {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        #clock {
+            height: 130%;
+            /* 纵横比为1:1 */
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            right: -28%;
+            top: -15%;
+            border-radius: 50%;
+            background-color: white;
+            border: #ff9214 30px solid;
+        }
+
+        @media(max-width:1000px) {
+            #clock {
+                right: -90%;
+            }
+        }
+
+        #clock-table {
+            width: 96%;
+            height: 96%;
+            border-radius: 50%;
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            transition: transform .8s ease-in-out;
+        }
+
+        .invisible-table {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+
+        .clock-thick {
+            width: 6%;
+            height: 6px;
+            background-color:rgb(255, 215, 0,0.7);
+            position: absolute;
+            top: calc(50% - 3px);
+            left: 0px;
+        }
+
+        .clock-thick span {
+            font-size: 50px;
+            position: absolute;
+            left: 140%;
+            top: calc(50% - 30px);
+            color: rgb(255, 215, 0,0.7);
+        }
+
+        .clock-scale {
+            width: 4%;
+            height: 2px;
+            background-color:rgb(255, 215, 0,0.7);
+            position: absolute;
+            top: calc(50% - .5px);
+            left: 0px;
+        }
+
+        .导航栏总栏 {
+            width: 60px;
+            height: 400px;
+            background-color: blueviolet;
+            position: absolute;
+            top:30%;
+            
+        }
+
+        .导航栏总栏 :hover{
+            width:160px;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        .nav {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav>li {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: brown;
+           
+        }
+
+        .千古帝王{
+            position: relative;
+        }
+        .个人主页{
+            position: relative;
+        }
+        .图片墙{
+            position: relative;
+        }
+        .寄语{
+            position: relative;
+        }
+
+        .千古帝王_nav {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color:brown;
+            display: none;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .千古帝王_nav>li {
+            height: 50px;
+            border: solid 1px red;
+            text-align: center;
+           }
+
+        .千古帝王:hover .千古帝王_nav {
+            display: block;
+            position: absolute;
+            left:100%;
+            top: 0%;
+            z-index: 999;
+
+        }
+
+        .phone{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone i{
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .context{
+            display:none;          
+        }
+        a{
+            text-decoration: none; 
+            color:#fff;
+        }
+        a:hover .context{
+            display: block;
+            position: absolute;
+            left:50%;
+            top:35%;
+            font-size: 20px;
+            color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <i class="iconfont icon-icon-arrow-up-bold" id="up-btn" onclick="slideToPrev()"></i>
+        <i class="iconfont icon-icon-arrow-down-bold" id="down-btn" onclick="slideToNext()"></i>
+        <div id="content">
+            <div class="card">
+                <div class="card-time">
+                    公元前135年
+                </div>
+                <div class="card-title">
+                    "窦太后去世，刘彻掌权"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    建元六年，刘彻的祖母窦太后去世，这为他摆脱束缚，开始独立掌权创造了机会。
+                    <br><br>
+                    窦太后在世时，对刘彻的政策多有掣肘，她的去世使得刘彻能够按照自己的意愿来规划国家的发展。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前134年
+                </div>
+                <div class="card-title">
+                    "罢黜百家，独尊儒术"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    汉武帝采纳董仲舒的建议，推行“罢黜百家，独尊儒术”的政策，确立了儒家思想在国家治理中的核心地位。
+                    <br>
+                    <br>
+                    这一政策不仅促进了儒学的发展，也加强了中央集权。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前127年
+                </div>
+                <div class="card-title">
+                    "推行-推恩令"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    为了削弱地方豪强的势力，汉武帝推行“推恩令”，允许王公贵族将自己的封地分给子弟，从而分散了他们的权力，减少了对中央的威胁。<br>
+                    <br>
+                    “推恩令”的实施取得了显著成效。诸侯国的势力被大大削弱，他们再也无法与中央政权相抗衡。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前129年
+                </div>
+                <div class="card-title">
+                    "对匈奴主动出击"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    汉武帝多次对匈奴发动大规模进攻，扭转了汉初以来被动挨打的局面，极大地增强了汉朝的军事实力和国际地位。<br>
+                    <br>
+                    汉武帝对匈奴的多次大规模进攻不仅扭转了汉初以来被动挨打的局面，还极大地增强了汉朝的军事实力和国际地位。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前138年
+                </div>
+                <div class="card-title">
+                    "开通丝绸之路"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    汉武帝派遣张骞出使西域，开辟了丝绸之路<br>
+                    <br>
+                    促进了中西文化的交流和经济的繁荣。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前89年
+                </div>
+                <div class="card-title">
+                    "发布《罪己诏》"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    晚年的汉武帝反思自己的过失，发布了《罪己诏》，向天下承认错误
+                    <br>
+                    <br>
+                    体现了他的自省精神和对国家的责任感。
+                </div>
+            </div>
+        </div>
+
+        <div id="clock">
+            <div id="clock-center"></div>
+            <div id="clock-pointer"></div>
+            <div id="clock-table"></div>
+        </div>
+    </div>
+
+    <div class="导航栏总栏">
+        <ul class="nav">
+            <li class="个人主页">
+                <a href="./home.html">
+                    <div class="phone">
+                        <i class="iconfont icon-wode"></i>
+                    </div>
+                    <div class="context">我的</div>
+                </a>
+                
+            </li>
+            <li class="千古帝王">
+                <a href="./首页.html">
+                    <div class="phone">
+                        <i class="iconfont icon-KING"></i>
+                    </div>
+                    <div class="context">千古一帝</div>
+                </a>
+                
+                <ul class="千古帝王_nav">
+                    <li class="li1">
+                        <a href="./嬴政.html">始皇帝</a>
+                    </li>
+                    <li class="li2">
+                        <a href="./刘邦.html">汉高祖</a>
+                    </li>
+                    <li class="li3">
+                        <a href="./刘彻.html">汉武帝</a>
+                    </li>
+                    <li class="li4">
+                        <a href="./刘备.html">汉昭烈帝</a>
+                    </li>
+                    <li class="li5">
+                        <a href="./李世民.html">唐太宗</a>
+                    </li>
+                    <li class="li6">
+                        <a href="./铁木真.html">成吉思汗</a>
+                    </li>
+                    <li class="li7">
+                        <a href="./朱元璋.html">明太祖</a>
+                    </li>
+                    <li class="li8">
+                        <a href="./朱棣.html">明成祖</a>
+                    </li>
+                    <li class="li9">
+                        <a href="./康熙.html">清圣祖</a>
+                    </li>
+                    <li class="li10">
+                        <a href="./项羽.html">西楚霸王</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="图片墙">
+                <a href="./phone.html">
+                    <div class="phone">
+                        <i class="iconfont icon-xiaoxishangqiang"></i>
+                    </div>
+                    <div class="context">图片墙</div>
+                </a>
+                
+            </li>
+            <li class="寄语">
+                <a href="./good.html">
+                    <div class="phone">
+                        <i class="iconfont icon-mingshijiyu"></i>
+                    </div>
+                    <div class="context">寄语</div>
+                </a>
+                
+            </li>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // 定义变量
+        let offset = 0;
+        let maxOffset = 0;
+        let minOffset = -5;
+        // 获取所有卡片元素并存储在数组中
+        const slides = Array.from(document.querySelectorAll(".card"));
+        // 获取时钟表盘元素
+        const clock = document.querySelector("#clock-table");
+        // 设定起始年份为公元前259
+        let startYear = [-89,-135,-134,-127,-129,-138];
+        var year=0;
+        for (let i = -60; i < 300; i += 6) {
+            // 调用添加时钟刻度函数
+            addClockScale(i);
+            if (i % 60 === 0) {
+                // 如果为整点时，调用添加粗刻度函数
+                addThickClockScale(i, startYear[year]);
+                year+=1;
+            }
+        }
+        // 添加时钟刻度
+        function addClockScale(degree) {
+            // 创建一个隐藏的表格元素
+            const invisibleClockTable = document.createElement("div");
+            // 添加类名
+            invisibleClockTable.className = "invisible-table";
+            // 设置旋转角度
+            invisibleClockTable.style.transform = `rotate(${degree}deg)`;
+            // 创建时钟刻度元素
+            const clockScale = document.createElement("div");
+            // 添加类名
+            clockScale.className = "clock-scale";
+            // 将时钟刻度元素添加到表格中
+            invisibleClockTable.appendChild(clockScale);
+            // 将表格添加到时钟表盘中
+            clock.appendChild(invisibleClockTable);
+        }
+        // 添加粗刻度
+        function addThickClockScale(degree, time) {
+            // 创建一个隐藏的表格元素
+            const invisibleClockTable = document.createElement("div");
+            invisibleClockTable.className = "invisible-table";
+            invisibleClockTable.style.transform = `rotate(${degree}deg)`;
+            const thickClockScale = document.createElement("div");
+            thickClockScale.className = "clock-thick";
+            const scaleContent = document.createElement("span");
+            scaleContent.textContent = `${time}`;
+            thickClockScale.appendChild(scaleContent);
+            invisibleClockTable.appendChild(thickClockScale);
+            clock.appendChild(invisibleClockTable);
+        }
+        // 向前切换卡片
+        function slideToPrev() {
+            // 更新偏移量，取最大值
+            offset = Math.min(maxOffset, offset + 1);
+            slides.forEach(slide => {
+                // 根据偏移量设置卡片垂直偏移效果
+                slide.style.transform = `translateY(${offset * 100}%)`;
+            });
+            // 调用旋转时钟表盘函数
+            clockRotate(offset * 60);
+        }
+        // 向后切换卡片
+        function slideToNext() {
+            offset = Math.max(minOffset, offset - 1);
+            slides.forEach(slide => {
+                slide.style.transform = `translateY(${offset * 100}%)`;
+            });
+            clockRotate(offset * 60);
+        }
+        // 旋转时钟表盘
+        function clockRotate(degree) {
+            // 根据角度旋转时钟表盘
+            clock.style.transform = `rotate(${degree}deg)`;
+        }
+    </script>
+</body>
+
+</html>

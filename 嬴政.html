@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嬴政</title>
+    <link rel="stylesheet" href="./img/font/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        .main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            background-color: #4a0202e2;
+            overflow: hidden;
+        }
+
+        .iconfont {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 27%;
+            z-index: 999;
+            font: 900 80px '';
+            color: #fff;
+        }
+
+        #up-btn {
+            top: 5%;
+        }
+
+        #down-btn {
+            bottom: 5%;
+        }
+
+        #content {
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            left: 15%;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            transition: transform .8s ease-in-out;
+        }
+
+        .card-time {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-size: 50px;
+            font-weight: 500;
+            padding-bottom: 10px;
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+        }
+
+        .card-passage {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        #clock {
+            height: 130%;
+            /* 纵横比为1:1 */
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            right: -28%;
+            top: -15%;
+            border-radius: 50%;
+            background-color: white;
+            border: #ff9214 30px solid;
+        }
+
+        @media(max-width:1000px) {
+            #clock {
+                right: -90%;
+            }
+        }
+
+        #clock-table {
+            width: 96%;
+            height: 96%;
+            border-radius: 50%;
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            transition: transform .8s ease-in-out;
+        }
+
+        .invisible-table {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+
+        .clock-thick {
+            width: 6%;
+            height: 6px;
+            background-color:rgb(255, 215, 0,0.7);
+            position: absolute;
+            top: calc(50% - 3px);
+            left: 0px;
+        }
+
+        .clock-thick span {
+            font-size: 50px;
+            position: absolute;
+            left: 140%;
+            top: calc(50% - 30px);
+            color: rgb(255, 215, 0,0.7);
+        }
+
+        .clock-scale {
+            width: 4%;
+            height: 2px;
+            background-color:rgb(255, 215, 0,0.7);
+            position: absolute;
+            top: calc(50% - .5px);
+            left: 0px;
+        }
+
+        .导航栏总栏 {
+            width: 60px;
+            height: 400px;
+            background-color: blueviolet;
+            position: absolute;
+            top:30%;
+            
+        }
+
+        .导航栏总栏 :hover{
+            width:160px;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        .nav {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav>li {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: brown;
+           
+        }
+
+        .千古帝王{
+            position: relative;
+        }
+        .个人主页{
+            position: relative;
+        }
+        .图片墙{
+            position: relative;
+        }
+        .寄语{
+            position: relative;
+        }
+
+        .千古帝王_nav {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color:brown;
+            display: none;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .千古帝王_nav>li {
+            height: 50px;
+            border: solid 1px red;
+            text-align: center;
+           }
+
+        .千古帝王:hover .千古帝王_nav {
+            display: block;
+            position: absolute;
+            left:100%;
+            top: 0%;
+            z-index: 999;
+
+        }
+
+        .phone{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone i{
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .context{
+            display:none;          
+        }
+        a{
+            text-decoration: none; 
+            color:#fff;
+        }
+        a:hover .context{
+            display: block;
+            position: absolute;
+            left:50%;
+            top:35%;
+            font-size: 20px;
+            color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div class="main">
+        <i class="iconfont icon-icon-arrow-up-bold" id="up-btn" onclick="slideToPrev()"></i>
+        <i class="iconfont icon-icon-arrow-down-bold" id="down-btn" onclick="slideToNext()"></i>
+        <div id="content">
+            <div class="card">
+                <div class="card-time">
+                    公元前247年
+                </div>
+                <div class="card-title">
+                    "立为秦王"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦庄襄王，即嬴异人（也作“子楚”），是战国时期秦国的国君，他在位期间成功扩大了秦国的领土，并加强了秦国的国力。当其驾崩后，按照秦国的王位继承制度，其子嬴政被立为秦王。吕不韦，原本是卫国商人，后来因投资嬴异人而步入政坛，并在嬴异人成为秦庄襄王后，被任命为丞相，封文信侯，食河南洛阳十万户。
+                   <br><br>
+                    吕不韦在担任相国期间，继续推行其一系列的政治和经济政策。在他的辅佐下，嬴政逐渐成长为一个有远见、有胆识的君主，为后来统一六国打下了坚实的基础。
+                    <br><br>
+                    综上所述，秦庄襄王驾崩后，十三岁的嬴政被立为秦王，并尊吕不韦为相国，这是秦国历史上的一个重要事件。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前237年
+                </div>
+                <div class="card-title">
+                    "掌握实权"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦王嬴政在掌握实权后，因吕不韦涉嫌与太后赵姬有染，且其权力过大，对王权构成潜在威胁，遂决定免除其相国职务。这一决定标志着吕不韦政治生涯的终结。随后，秦王责令吕不韦离开咸阳，前往封地居住。
+                    <br>
+                    <br>
+                    此举不仅削弱了朝中旧贵族的势力，也进一步巩固了秦王嬴政的统治地位，为秦国的统一大业扫清了障碍。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前230年
+                </div>
+                <div class="card-title">
+                    "灭韩，赵，燕国"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦王嬴政三十岁之时，正值壮年，雄心勃勃。他果断派兵攻灭韩国，这一军事行动不仅标志着秦国对六国的征服之战正式拉开序幕，也彰显了他统一天下的坚定决心。
+                    <br>
+                    <br>
+                    此后，秦国势如破竹，逐一击败其余五国，最终实现了中国历史上的首次大一统，建立了中央集权的秦朝，对中国历史产生了深远影响。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前225年
+                </div>
+                <div class="card-title">
+                    "灭魏,楚国"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦国，战国七雄之一，其军事与政治实力在战国末期迅速崛起。为统一六国，秦国采取了一系列战略行动。其中，灭魏之战是秦国逐步蚕食诸侯的重要一步，通过巧妙的军事部署和强大的国力支持，秦国成功击败了魏国。随后，秦国又将矛头指向了楚国，经过艰苦卓绝的战斗，最终也战胜了楚国。
+                    <br>
+                    <br>
+                    这两场战役不仅展示了秦国的军事实力，更为其统一六国奠定了坚实基础，开启了中国历史上首个大一统王朝——秦朝的序幕。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前221年
+                </div>
+                <div class="card-title">
+                    "灭齐国，统六国"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦国，战国七雄之一，历经数代君主的励精图治，逐渐崛起于西方。其军事力量日益强大，战略眼光深远。至秦王嬴政时期，秦国国力达到鼎盛，采取远交近攻之策，逐一击败其他六国。最终，秦国大军压境，一举灭掉齐国，完成了统一六国的伟大壮举
+                    <br>
+                    <br>
+                    这一历史事件标志着中国历史上首个大一统王朝——秦朝的建立，为后世奠定了坚实的政治、经济和文化基础，影响深远
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-time">
+                    公元前214年
+                </div>
+                <div class="card-title">
+                    "北逐匈奴，筑长城"
+                </div>
+                <div class="card-passage">
+                    <br>
+                    秦国在统一六国后，为抵御北方匈奴的侵扰，采取了积极的防御措施。秦始皇下令北逐匈奴，将这股强大的游牧势力驱逐至更远的北方，以确保中原地区的安宁。同时，秦国还修筑了长城，这是一项举世闻名的伟大工程。长城蜿蜒起伏，宛如一条巨龙，横亘在崇山峻岭之间，成为了一道坚不可摧的屏障。
+                    <br>
+                    <br>
+                    这一举措不仅有效抵御了匈奴的侵袭，也彰显了秦国的强大实力与坚定决心
+                </div>
+            </div>
+        </div>
+
+        <div id="clock">
+            <div id="clock-center"></div>
+            <div id="clock-pointer"></div>
+            <div id="clock-table"></div>
+        </div>
+    </div>
+
+    <div class="导航栏总栏">
+        <ul class="nav">
+            <li class="个人主页">
+                <a href="./home.html">
+                    <div class="phone">
+                        <i class="iconfont icon-wode"></i>
+                    </div>
+                    <div class="context">我的</div>
+                </a>
+                
+            </li>
+            <li class="千古帝王">
+                <a href="./首页.html">
+                    <div class="phone">
+                        <i class="iconfont icon-KING"></i>
+                    </div>
+                    <div class="context">千古一帝</div>
+                </a>
+                
+                <ul class="千古帝王_nav">
+                    <li class="li1">
+                        <a href="./嬴政.html">始皇帝</a>
+                    </li>
+                    <li class="li2">
+                        <a href="./刘邦.html">汉高祖</a>
+                    </li>
+                    <li class="li3">
+                        <a href="./刘彻.html">汉武帝</a>
+                    </li>
+                    <li class="li4">
+                        <a href="./刘备.html">汉昭烈帝</a>
+                    </li>
+                    <li class="li5">
+                        <a href="./李世民.html">唐太宗</a>
+                    </li>
+                    <li class="li6">
+                        <a href="./铁木真.html">成吉思汗</a>
+                    </li>
+                    <li class="li7">
+                        <a href="./朱元璋.html">明太祖</a>
+                    </li>
+                    <li class="li8">
+                        <a href="./朱棣.html">明成祖</a>
+                    </li>
+                    <li class="li9">
+                        <a href="./康熙.html">清圣祖</a>
+                    </li>
+                    <li class="li10">
+                        <a href="./项羽.html">西楚霸王</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="图片墙">
+                <a href="./phone.html">
+                    <div class="phone">
+                        <i class="iconfont icon-xiaoxishangqiang"></i>
+                    </div>
+                    <div class="context">图片墙</div>
+                </a>
+                
+            </li>
+            <li class="寄语">
+                <a href="./good.html">
+                    <div class="phone">
+                        <i class="iconfont icon-mingshijiyu"></i>
+                    </div>
+                    <div class="context">寄语</div>
+                </a>
+                
+            </li>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 定义变量
+        let offset = 0;
+        let maxOffset = 0;
+        let minOffset = -5;
+        // 获取所有卡片元素并存储在数组中
+        const slides = Array.from(document.querySelectorAll(".card"));
+        // 获取时钟表盘元素
+        const clock = document.querySelector("#clock-table");
+        // 设定起始年份为公元前259
+        let startYear = [-214,-247,-237,-230,-225,-221];
+        var year=0;
+        for (let i = -60; i < 300; i += 6) {
+            // 调用添加时钟刻度函数
+            addClockScale(i);
+            if (i % 60 === 0) {
+                // 如果为整点时，调用添加粗刻度函数
+                addThickClockScale(i, startYear[year]);
+                year+=1;
+            }
+        }
+        // 添加时钟刻度
+        function addClockScale(degree) {
+            // 创建一个隐藏的表格元素
+            const invisibleClockTable = document.createElement("div");
+            // 添加类名
+            invisibleClockTable.className = "invisible-table";
+            // 设置旋转角度
+            invisibleClockTable.style.transform = `rotate(${degree}deg)`;
+            // 创建时钟刻度元素
+            const clockScale = document.createElement("div");
+            // 添加类名
+            clockScale.className = "clock-scale";
+            // 将时钟刻度元素添加到表格中
+            invisibleClockTable.appendChild(clockScale);
+            // 将表格添加到时钟表盘中
+            clock.appendChild(invisibleClockTable);
+        }
+        // 添加粗刻度
+        function addThickClockScale(degree, time) {
+            // 创建一个隐藏的表格元素
+            const invisibleClockTable = document.createElement("div");
+            invisibleClockTable.className = "invisible-table";
+            invisibleClockTable.style.transform = `rotate(${degree}deg)`;
+            const thickClockScale = document.createElement("div");
+            thickClockScale.className = "clock-thick";
+            const scaleContent = document.createElement("span");
+            scaleContent.textContent = `${time}`;
+            thickClockScale.appendChild(scaleContent);
+            invisibleClockTable.appendChild(thickClockScale);
+            clock.appendChild(invisibleClockTable);
+        }
+        // 向前切换卡片
+        function slideToPrev() {
+            // 更新偏移量，取最大值
+            offset = Math.min(maxOffset, offset + 1);
+            slides.forEach(slide => {
+                // 根据偏移量设置卡片垂直偏移效果
+                slide.style.transform = `translateY(${offset * 100}%)`;
+            });
+            // 调用旋转时钟表盘函数
+            clockRotate(offset * 60);
+        }
+        // 向后切换卡片
+        function slideToNext() {
+            offset = Math.max(minOffset, offset - 1);
+            slides.forEach(slide => {
+                slide.style.transform = `translateY(${offset * 100}%)`;
+            });
+            clockRotate(offset * 60);
+        }
+        // 旋转时钟表盘
+        function clockRotate(degree) {
+            // 根据角度旋转时钟表盘
+            clock.style.transform = `rotate(${degree}deg)`;
+        }
+    </script>
+</body>
+
+</html>

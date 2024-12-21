@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="lxh" content="width=device-width, initial-scale=1.0">
+    <title>千古帝王首页</title>
+    <link rel="stylesheet" href="https://static.fontawesome.com/css/fontawesome-app.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="./img/font/iconfont.css">
+    <!-- 引入字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Source Sans Pro", sans-serif;
+        }
+
+        html,
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            overflow: hidden;
+            transition: background-image .7s ease-in-out;
+        }
+
+        .shell {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            background: rgba(99, 99, 99, 0.8);
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 380px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -80px;
+        }
+
+        .prev,
+        .next {
+            transition: transform 0.25s ease;
+            z-index: 99999;
+            bottom: 5px;
+        }
+
+        .prev i,
+        .next i {
+            font-size: 90px;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .shell_body {
+            width: 100%;
+            transform: scale(.8);
+            padding: 20px 0 150px 0;
+        }
+
+        .shell_slider {
+            position: relative;
+            transition: transform 1s ease-in-out;
+            background: transparent;
+        }
+
+        .item {
+            position: relative;
+            float: left;
+            margin: 0 20px;
+        }
+
+        .frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .frame:after {
+            content: "";
+            position: absolute;
+            bottom: -16%;
+            width: 100%;
+            height: 60px;
+            background: #ffffff1c;
+            box-shadow: 0px 0px 15px 5px #ffffff1c;
+            transform: rotateX(90deg) translate3d(0px, -20px, 0px);
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid #fff;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .box h1,
+        .box span {
+            color: #fff;
+            transform: translateZ(20px);
+        }
+
+        .box h1 {
+            text-shadow: 0 0 30px #1f05b4;
+            font-size: 37px;
+        }
+
+        .名言{
+            color:rgb(255, 215, 0,0.7);;
+            font-size: 28px;
+            text-decoration: none; 
+        }
+
+        .box span {
+            position: absolute;
+            bottom: 20px;
+            padding: 0 25px;
+            text-shadow: 0 0 10px #1f05b4;
+        }
+
+        .front,
+        .left,
+        .right {
+            box-shadow: 0 0 50px #ffffff;
+            background-size: cover;
+        }
+
+        .right,
+        .left {
+            top: 0;
+            width: 60px;
+            backface-visibility: hidden;
+        }
+
+        .left {
+            left: 0;
+            border-left-width: 5px;
+            transform: translate3d(1px, 0, -60px) rotateY(-90deg);
+            transform-origin: 0%;
+        }
+
+        .right {
+            right: 0;
+            border-right-width: 5px;
+            transform: translate3d(-1px, 0, -60px) rotateY(90deg);
+            transform-origin: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="shell_body">
+            <div class="button">
+                <div class="prev"><i class="iconfont icon-fanhui"></i></div>
+                <div class="next"><i class="iconfont icon-jinru"></i></div>
+            </div>
+
+            <div class="shell_slider">
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>始皇帝-嬴政</h1>
+                            <a class="名言" href="./嬴政.html">朕统六国,天下归一！</a>
+                            <span>-公元前259年-公元前210年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>汉高祖-刘邦</h1>
+                            <a class="名言" href="./刘邦.html">大风起兮云飞扬，威加海内兮归故乡，安得猛士吸收四方！</a>
+                            <span>-公元前256年-公元前195年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>西楚霸王-项羽</h1>
+                            <a class="名言" href="./项羽.html">力拔山兮气盖世，时不利兮骓不逝！</a>
+                            <span>-公元前232年-公元前202年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>汉昭烈帝-刘备</h1>
+                            <a class="名言" href="./刘备.html">汉贼不两立，王业不偏安！</a>
+                            <span>-公元161年-公元223年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>唐太宗-李世民</h1>
+                            <a class="名言" href="./李世民.html">舟所以比人君，水所以比黎庶；水能载舟，也能覆舟！</a>
+                            <span>-公元599年-公元649年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>成吉思汗-铁木真</h1>
+                            <a class="名言" href="./铁木真.html">拼杀冲锋的时候，要像雄鹰一样！</a>
+                            <span>-公元1162年-公元1227年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>明太祖-朱元璋</h1>
+                            <a class="名言" href="./朱元璋.html">朕之霸气，非言语可表，唯行动可证。朕，即天下！</a>
+                            <span>-公元1328年-公元1398年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>明成祖-朱棣</h1>
+                            <a class="名言" href="./朱棣.html">我朝国势之尊，超迈前古！</a>
+                            <span>-公元1360年-公元1424年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>清圣祖-康熙</h1>
+                            <a class="名言" href="./康熙.html">天下之大，莫非王土；率土之滨，莫非王臣！</a>
+                            <span>-公元1662年-公元1722年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="frame">
+                        <div class="box front">
+                            <h1>汉武帝-刘彻</h1>
+                            <a class="名言" href="./刘彻.html">如今攻守易形了，寇可往，我亦可往！</a>
+                            <span>-公元前156年-公元前87年-</span>
+                        </div>
+                        <div class="box left"></div>
+                        <div class="box right"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 获取所有的item元素
+    var items = document.getElementsByClassName('item');
+    // 循环遍历每个item
+    for (var i = 0; i < items.length; i++) {
+        // 获取当前item
+        var item = items[i];
+        var frame = item.getElementsByClassName('frame')[0];
+        var frontBox = frame.getElementsByClassName('front')[0];
+        var leftBox = frame.getElementsByClassName('left')[0];
+        var rightBox = frame.getElementsByClassName('right')[0];
+        // 设置背景图片
+        frontBox.style.backgroundImage = 'url(./img/' + (i + 1).toString().padStart(2, '0') + '.jpg)';
+        leftBox.style.backgroundImage = 'url(./img/' + (i + 1).toString().padStart(2, '0') + '.jpg)';
+        rightBox.style.backgroundImage = 'url(./img/' + (i + 1).toString().padStart(2, '0') + '.jpg)';
+    }
+    (function () {
+        "use strict";
+        var shell = document.getElementsByClassName('shell')[0];
+        var slider = shell.getElementsByClassName('shell_slider')[0];
+        var items = shell.getElementsByClassName('item');
+        var prevBtn = shell.getElementsByClassName('prev')[0];
+        var nextBtn = shell.getElementsByClassName('next')[0];
+        // 定义变量
+        var width, height, totalWidth, margin = 20,
+            currIndex = 0,
+            interval, intervalTime = 3000;
+        function init() {
+            // 初始化函数
+            resize();
+            move(Math.floor(items.length / 2));
+            bindEvents();
+            timer();
+        }
+        function resize() {
+            // 窗口大小变化时调整大小
+            width = Math.max(window.innerWidth * .20, 275);
+            height = window.innerHeight * .5;
+            totalWidth = width * items.length;
+            // 设置slider宽度
+            slider.style.width = totalWidth + "px";
+            // 设置每个item的宽度和高度
+            for (var i = 0; i < items.length; i++) {
+                let item = items[i];
+                item.style.width = (width - (margin * 2)) + "px";
+                item.style.height = height + "px";
+            }
+        }
+        function bindEvents() {
+            // 窗口大小变化时调整大小
+            window.onresize = resize;
+            // 点击prev按钮切换item
+            prevBtn.addEventListener('click', () => { prev(); });
+            nextBtn.addEventListener('click', () => { next(); });
+        }
+        init();
+        function move(index) {
+            // 移动shell到指定的item
+            if (index < 1) index = items.length;
+            if (index > items.length) index = 1;
+            currIndex = index;
+            // 遍历所有item
+            for (var i = 0; i < items.length; i++) {
+                let item = items[i],
+                    box = item.getElementsByClassName('frame')[0];
+                if (i == (index - 1)) {
+                    // 当前item添加active类并设置3D效果
+                    item.classList.add('item--active');
+                    box.style.transform = "perspective(1200px)";
+                } else {
+                    // 其他item移除active类并设置3D效果
+                    item.classList.remove('item--active');
+                    box.style.transform = "perspective(1200px) rotateY(" + (i < (index - 1) ? 40 : -40) + "deg)";
+                }
+            }
+            // 移动slider
+            slider.style.transform = "translate3d(" + ((index * -width) + (width / 2) + window.innerWidth / 2) + "px, 0, 0)";
+            // 设置body背景图片
+            var frontBox = items[index - 1].getElementsByClassName('front')[0];
+            document.body.style.backgroundImage = frontBox.style.backgroundImage;
+        }
+        function timer() {
+            // 定时器，自动切换shell
+            clearInterval(interval);
+            interval = setInterval(() => {
+                move(++currIndex);
+            }, intervalTime);
+        }
+        // 切换item
+        function prev() {
+            move(--currIndex);
+            timer();
+        }
+        function next() {
+            move(++currIndex);
+            timer();
+        }
+    })();
+</script>
+
+</html>

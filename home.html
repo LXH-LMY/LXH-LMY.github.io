@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./img/font/iconfont.css">
+    <title>个人主页</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-image: url("./img/0003.jpg");
+            background-position: center;
+            background-size: 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            opacity: 1;
+        }
+
+        .导航栏总栏 {
+            width: 60px;
+            height: 400px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 30%;
+
+        }
+
+        .导航栏总栏 :hover {
+            width: 160px;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        .nav {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav>li {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: brown;
+
+        }
+
+        .千古帝王 {
+            position: relative;
+        }
+
+        .个人主页 {
+            position: relative;
+        }
+
+        .图片墙 {
+            position: relative;
+        }
+
+        .寄语 {
+            position: relative;
+        }
+
+        .千古帝王_nav {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color: brown;
+            display: none;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .千古帝王_nav>li {
+            height: 50px;
+            border: solid 1px red;
+            text-align: center;
+        }
+
+        .千古帝王:hover .千古帝王_nav {
+            display: block;
+            position: absolute;
+            left: 100%;
+            top: 0%;
+            z-index: 999;
+
+        }
+
+        .phone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone i {
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .context {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        a:hover .context {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .card {
+            width: 1300px;
+            height: 800px;
+            position: absolute;
+            left: 15%;
+            top: 7%;
+            perspective: 1700px;
+        }
+
+        .prev i,
+        .next i {
+            font-size: 90px;
+            color: #170202;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .prev {
+            width: 100px;
+            position: absolute;
+            bottom: 0%;
+            left: 40%;
+        }
+
+        .next {
+            width: 100px;
+            position: absolute;
+            bottom: 0%;
+            right: 40%;
+        }
+
+        #card1,
+        #card2,
+        #card3 {
+            width: 700px;
+            height: 600px;
+            position: absolute;
+            top: 8%;
+        }
+
+        #card1 {
+            transform-style: preserve-3d;
+            background-image: url("./img/0006.jpg");
+            background-position: center;
+            background-size: 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #card3 {
+            transform-style: preserve-3d;
+            background-image: url("./img/0005.jpg");
+            background-position: center;
+            background-size: 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #card2 {
+            transform-style: preserve-3d;
+            background-image: url("./img/0004.jpg");
+            background-position: center;
+            background-size: 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .text_main {
+            position: absolute;
+            left: 20px;
+            top: 5%;
+            color: rgba(250, 235, 215, 0.781)
+        }
+
+        .hobby {
+            position: absolute;
+            color: rgba(250, 235, 215, 0.781);
+            left: 20px;
+            top: 25%;
+            font-size: 20px;
+        }
+
+        .text_main1 {
+            position: absolute;
+            left: 20px;
+            top: 5%;
+            color: rgb(200, 10, 102)
+        }
+
+        .hobby1 {
+            position: absolute;
+            color: rgb(200, 10, 102);
+            left: 20px;
+            top: 25%;
+            font-size: 20px;
+        }
+
+        .text_main2 {
+            position: absolute;
+            left: 20px;
+            top: 5%;
+            color: rgb(168, 46, 10);
+        }
+
+        .hobby2 {
+            position: absolute;
+            color: rgb(168, 46, 10);
+            left: 20px;
+            top: 25%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="导航栏总栏">
+        <ul class="nav">
+            <li class="个人主页">
+                <a href="./home.html">
+                    <div class="phone">
+                        <i class="iconfont icon-wode"></i>
+                    </div>
+                    <div class="context">我的</div>
+                </a>
+
+            </li>
+            <li class="千古帝王">
+                <a href="./首页.html">
+                    <div class="phone">
+                        <i class="iconfont icon-KING"></i>
+                    </div>
+                    <div class="context">千古一帝</div>
+                </a>
+
+                <ul class="千古帝王_nav">
+                    <li class="li1">
+                        <a href="./嬴政.html">始皇帝</a>
+                    </li>
+                    <li class="li2">
+                        <a href="./刘邦.html">汉高祖</a>
+                    </li>
+                    <li class="li3">
+                        <a href="./刘彻.html">汉武帝</a>
+                    </li>
+                    <li class="li4">
+                        <a href="./刘备.html">汉昭烈帝</a>
+                    </li>
+                    <li class="li5">
+                        <a href="./李世民.html">唐太宗</a>
+                    </li>
+                    <li class="li6">
+                        <a href="./铁木真.html">成吉思汗</a>
+                    </li>
+                    <li class="li7">
+                        <a href="./朱元璋.html">明太祖</a>
+                    </li>
+                    <li class="li8">
+                        <a href="./朱棣.html">明成祖</a>
+                    </li>
+                    <li class="li9">
+                        <a href="./康熙.html">清圣祖</a>
+                    </li>
+                    <li class="li10">
+                        <a href="./项羽.html">西楚霸王</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="图片墙">
+                <a href="./phone.html">
+                    <div class="phone">
+                        <i class="iconfont icon-xiaoxishangqiang"></i>
+                    </div>
+                    <div class="context">图片墙</div>
+                </a>
+
+            </li>
+            <li class="寄语">
+                <a href="./good.html">
+                    <div class="phone">
+                        <i class="iconfont icon-mingshijiyu"></i>
+                    </div>
+                    <div class="context">寄语</div>
+                </a>
+
+            </li>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="bottom">
+            <div class="prev"><i class="iconfont icon-fanhui"></i></div>
+            <div class="next"><i class="iconfont icon-jinru"></i></div>
+        </div>
+        <div class="card_div" id="card1">
+            <div class="text_main1">
+                <h1>学校：青岛大学（Qingdao University）</h1>
+                <h2>属地：山东省青岛市</h2>
+                <h2>性质类别：公立大学（综合类）</h2>
+            </div>
+            <div class="hobby1">
+                <p>校区设置：学校拥有浮山校区、金家岭校区、松山校区三个校区，占地2655亩，建筑面积114万平方米。<br>
+                    院系设置：学校设有34个学院和医学部，涵盖自然科学、人文社会科学等多学科领域。<br>
+                    专业设置：备案本科专业89个，一级学科博士点和专业学位博士点17个，一级学科硕士点40个，博士后流动站11个。<br><br>
+                    教职工数量：学校现有教职工3790余人，专任教师2600余人，其中教授464人、副教授895人。<br><br>
+                    科研平台：学校建有多个国家级和省级科研平台，为师生提供了良好的科研环境。<br><br>
+                    排名情况：根据软科中国大学排名等榜单，青岛大学在国内高校中排名靠前，具有一定的社会影响力和知名度。<br>
+
+                </p>
+            </div>
+        </div>
+        <div class="card_div" id="card2">
+            <div class="text_main">
+                <h1>本人：李学昊</h1>
+                <h2>学号：2023204203</h2>
+                <h2>班级：计科01</h2>
+            </div>
+            <div class="hobby">
+                <p>在历史的长河中，帝王们以其非凡的胆识、卓越的才能和波澜壮阔的一生，为后世留下了无数传奇与佳话。而我，一个对历史帝王充满痴迷与热爱的探索者，愿与你一同走进那些辉煌与沧桑交织的帝王世界，感受那份跨越时空的震撼与敬仰。<br><br>
+                    自幼年起，我便对历史上的帝王们产生了浓厚的兴趣。每当翻开厚重的史书，我仿佛能穿越时空，亲眼目睹那些帝王们指点江山、挥斥方遒的英姿。从秦始皇的横扫六国、一统天下，到汉武帝的北击匈奴、开疆拓土；从唐太宗的贞观之治、开创盛世，到康熙帝的平定三藩、维护统一，每一位帝王都以其独特的智慧和勇气，书写着属于自己的传奇篇章。<br><br>
+                    如今，我仍然保持着对历史帝王的痴迷与热爱。每当有空闲时间，我都会沉浸在史书中，寻找那些被岁月尘封的往事。我相信，历史是一面镜子，它不仅能让我们了解过去，更能让我们从中汲取智慧和力量，为未来的生活和工作提供有益的启示。
+                </p>
+            </div>
+        </div>
+        <div class="card_div" id="card3">
+            <div class="text_main2">
+                <h1>家乡：天津</h1>
+                <h2>行政区类型：直辖市</h2>
+                <h2>别称：津沽、津门，天津卫</h2>
+            </div>
+            <div class="hobby2">
+                <p>天津自古因漕运而兴起，唐朝中叶以后成为南方粮、绸北运的水陆码头。
+                    金代在南北运河与海河交汇的三岔河口一带设直沽寨，为天津最早的建置。
+                    元朝设“海津镇”，是军事重镇和漕粮转运中心。
+                    明永乐二年（1404年）正式筑城，是中国古代唯一有确切建城时间记录的城市。
+                    历经明清两代发展，天津逐渐成为华北地区的重要城市。<br><br>
+                    天津地处华北平原东北部，海河流域下游，东临渤海，北依燕山，西靠首都北京市，其余均与河北省相邻。
+                    天津拥有便捷的交通网络，包括铁路、公路、航空和水运等多种交通方式。
+                    天津港是世界等级最高、中国最大的人工深水港之一，吞吐量居世界前列。
+                    <br><br>
+                    天津是中国近代史上的重要城市之一，拥有丰富的历史文化遗产和人文景观。
+                    天津拥有多所百年名校，如天津大学、南开大学等，是中国教育的重要发源地之一。
+                    天津的民俗文化独具特色，包括京东大鼓、天津时调等传统曲艺形式以及天津剪纸等传统民间艺术。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var cards = document.getElementsByClassName('card_div');
+        console.log(cards);
+        var currIndex = 1;
+        var shell = document.getElementsByClassName('bottom')[0];
+        console.log(shell);
+        var prevBtn = shell.getElementsByClassName('prev')[0];
+        var nextBtn = shell.getElementsByClassName('next')[0];
+        console.log(prevBtn);
+        console.log(nextBtn);
+
+        function init() {
+            bindEvents();
+            move(currIndex)
+        }
+        function bindEvents() {
+            prevBtn.addEventListener('click', () => { prev(); });
+            nextBtn.addEventListener('click', () => { next(); });
+        }
+        function prev() {
+            move(++currIndex);
+        }
+        function next() {
+            move(--currIndex);
+        }
+        init();
+        function move(index) {
+            if (index < 0) index = cards.length - 1;
+            if (index > cards.length) index = 0;
+
+            currIndex = index;
+            var currIndex_big = (currIndex + 1) % cards.length;
+            var currIndex_small = (currIndex - 1 + cards.length) % cards.length;
+            console.log(currIndex_small);
+            console.log(currIndex);
+            console.log(currIndex_big);
+            cards[currIndex].style.transform = 'rotateY(0deg) scale(1)';
+            cards[currIndex].style.opacity = 0.9;
+            cards[currIndex].style.left = '23%';
+            cards[currIndex].style.zIndex = 10;
+            cards[currIndex_big].style.transform = 'rotateY(-70deg) scale(0.8)';
+            cards[currIndex_big].style.opacity = 0.4;
+            cards[currIndex_big].style.left = '45%';
+            cards[currIndex_big].style.zIndex = 1;
+            cards[currIndex_small].style.transform = 'rotateY(70deg) scale(0.8)';
+            cards[currIndex_small].style.opacity = 0.4;
+            cards[currIndex_small].style.left = '0%';
+            cards[currIndex_small].style.zIndex = 1;
+            var body = document.getElementsByTagName('body')[0];
+            body.style.backgroundImage = 'url(./img/' + (currIndex + 1).toString().padStart(4, '0') + '.jpg)';
+        }
+    </script>
+
+</body>
+
+</html>

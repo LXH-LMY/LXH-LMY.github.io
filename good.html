@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>调查问卷</title>
+    <link rel="stylesheet" href="./img/font/iconfont.css">
+
+    <style>
+        #advice {
+            height: 250px;
+            width: 600px;
+            border-radius: 8px;
+        }
+
+        .div1_1 {
+            height: 30px;
+            width: 500px;
+            border-radius: 8px;
+        }
+
+        #div1 {
+            position: absolute;
+            top: 120px;
+            left: 185px;
+            border: solid 1px black;
+            padding-left: 50px;
+            padding-right: 30px;
+        }
+
+        #submit {
+            height: 50px;
+            width: 200px;
+            background-color: gray;
+            color: white;
+            position: relative;
+            left: 180px;
+        }
+
+        hr {
+            height: 2px;
+            background-color: #ddd;
+            width: 1300px;
+        }
+
+        #h_1 {
+            position: relative;
+            left: 175px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        #div2 {
+            border: solid 1px black;
+            padding-left: 50px;
+            padding-right: 30px;
+            position: absolute;
+            top: 120px;
+            right: 185px;
+            width: 500px;
+            height: 1132px;
+        }
+        .导航栏总栏 {
+            width: 60px;
+            height: 400px;
+            background-color: blueviolet;
+            position: absolute;
+            top:30%;
+            
+        }
+
+        .导航栏总栏 :hover{
+            width:160px;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+        .nav {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav>li {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: brown;
+           
+        }
+
+        .千古帝王{
+            position: relative;
+        }
+        .个人主页{
+            position: relative;
+        }
+        .图片墙{
+            position: relative;
+        }
+        .寄语{
+            position: relative;
+        }
+
+        .千古帝王_nav {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color:brown;
+            display: none;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        .千古帝王_nav>li {
+            height: 50px;
+            border: solid 1px red;
+            text-align: center;
+           }
+
+        .千古帝王:hover .千古帝王_nav {
+            display: block;
+            position: absolute;
+            left:100%;
+            top: 0%;
+            z-index: 999;
+
+        }
+
+        .phone{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone i{
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .context{
+            display:none;          
+        }
+        a{
+            text-decoration: none; 
+            color:#fff;
+        }
+        a:hover .context{
+            display: block;
+            position: absolute;
+            left:50%;
+            top:35%;
+            font-size: 20px;
+            color:#fff;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <h1 id="h_1">调查问卷</h1>
+    <hr>
+    <form id="" name="f" action="" method="get" onsubmit="return validate()">
+        <div id="div1">
+            <h3>基本信息</h3><br>
+            姓名：<input class="div1_1" id="name1" name="user" value="" type="" placeholder="请输入你的姓名" required><br><br>
+
+            学号：<input class="div1_1" id="pass1" name="pass" value="" type="password" placeholder="请输入你的学号"
+                required><br><br>
+
+            性别:<input id="" name="xb" value="girl" type="radio" placeholder="">女生
+            <input id="" name="xb" value="boy" type="radio" placeholder="" checked>男生<br><br>
+
+
+            爱好：<input id="" name="ah" value="run" type="checkbox" placeholder="">跑步
+            <input id="" name="ah" value="swin" type="checkbox" placeholder="">游泳
+            <input id="" name="ah" value="music" type="checkbox" placeholder="">音乐
+            <input id="" name="ah" value="file" type="checkbox" placeholder="">电影
+            <input id="" name="ah" value="climb" type="checkbox" placeholder="">爬山
+            <input id="" name="ah" value="read" type="checkbox" placeholder="">阅读<br><br>
+
+
+            年龄：<input class="div1_1" id="" name="age" value="" type="number" min="14" max="60" placeholder=""><br><br>
+
+
+            生日：<input class="div1_1" id="" name="birth" value="" type="date" placeholder=""><br><br>
+
+
+            年级：<select class="div1_1" name="" size="1">
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+
+            </select><br><br>
+
+            <h3>对于帝王的评价</h3>
+            是否喜欢这个网页：<input id="" name="like" value="yes" type="radio" placeholder="" checked>喜欢
+            <input id="" name="like" value="no" type="radio" placeholder="">不喜欢<br><br>
+
+
+            感觉效果怎么样：<input id="" name="xiaoguo" value="good" type="radio" placeholder="" checked>非常好
+            <input id="" name="xiaoguo" value="middle" type="radio" placeholder="">一般
+            <input id="" name="xiaoguo" value="bad" type="radio" placeholder="">不太好<br><br>
+
+
+            最喜欢那位帝王：<input id="" name="ah" value="first" type="checkbox" placeholder="">嬴政
+            <input id="" name="ah" value="second" type="checkbox" placeholder="">刘邦
+            <input id="" name="ah" value="third" type="checkbox" placeholder="">刘彻
+            <input id="" name="ah" value="forth" type="checkbox" placeholder="">刘备
+            <input id="" name="ah" value="five" type="checkbox" placeholder="">李世民
+            <br>
+            <input id="" name="ah" value="six" type="checkbox" placeholder="">铁木真
+            <input id="" name="ah" value="seven" type="checkbox" placeholder="">朱元璋
+            <input id="" name="ah" value="eight" type="checkbox" placeholder="">朱棣
+            <input id="" name="ah" value="nine" type="checkbox" placeholder="">康熙
+            <input id="" name="ah" value="ten" type="checkbox" placeholder="">项羽
+            <br><br>
+
+
+            是否满意历史小课堂：<input id="" name="teach" value="good" type="radio" placeholder="" checked>非常满意
+            <input id="" name="teach" value="middle" type="radio" placeholder="">一般满意
+            <input id="" name="teach" value="bad" type="radio" placeholder="">不太满意<br><br>
+
+            <h3>你对于你喜欢的帝王的原因</h3>
+            <b>请填写你对喜欢帝王的原因，他有哪些功绩与魅力吸引着你，谈谈你的看法</b><br>
+            <input id="advice" name="advice" type="text" value="" /><br><br><br>
+            <input id="submit" name="" value="提交问卷" type="submit" placeholder=""><br>
+        </div>
+    </form>
+
+
+    <div id="div2">
+        <h3>调查问卷须知</h3>
+        <ol>
+            <li>问卷目的</li>
+            <p>本次问卷旨在收集同学们对于这次web开发的建议与留言</p>
+            <li>问卷填写要求</li>
+            <ol>
+                <li>认真阅读：在填写问卷前，请认真阅读问卷说明和每个问题，确保理解问题的意图和要求。</li>
+                <li>真实反映：请根据自己的实际情况和真实感受填写问卷，不要受他人影响或随意编造答案。</li>
+                <li>尊重他人：在填写问卷时，请尊重他人的意见和感受，不要发表攻击性、侮辱性或歧视性的言论。</li>
+            </ol>
+
+            <li>隐私保护与数据使用</li>
+            <p>我们承诺保护个人隐私，问卷中的所有信息将仅用于统计和分析，不会泄露给任何第三方,问卷结果将用于改进和提升web开发水平。</p>
+        </ol>
+        <img src="./img/背景.jpg"width="500px" height="665px">
+    </div>
+    <div class="导航栏总栏">
+        <ul class="nav">
+            <li class="个人主页">
+                <a href="./home.html">
+                    <div class="phone">
+                        <i class="iconfont icon-wode"></i>
+                    </div>
+                    <div class="context">我的</div>
+                </a>
+                
+            </li>
+            <li class="千古帝王">
+                <a href="./首页.html">
+                    <div class="phone">
+                        <i class="iconfont icon-KING"></i>
+                    </div>
+                    <div class="context">千古一帝</div>
+                </a>
+                
+                <ul class="千古帝王_nav">
+                    <li class="li1">
+                        <a href="./嬴政.html">始皇帝</a>
+                    </li>
+                    <li class="li2">
+                        <a href="./刘邦.html">汉高祖</a>
+                    </li>
+                    <li class="li3">
+                        <a href="./刘彻.html">汉武帝</a>
+                    </li>
+                    <li class="li4">
+                        <a href="./刘备.html">汉昭烈帝</a>
+                    </li>
+                    <li class="li5">
+                        <a href="./李世民.html">唐太宗</a>
+                    </li>
+                    <li class="li6">
+                        <a href="./铁木真.html">成吉思汗</a>
+                    </li>
+                    <li class="li7">
+                        <a href="./朱元璋.html">明太祖</a>
+                    </li>
+                    <li class="li8">
+                        <a href="./朱棣.html">明成祖</a>
+                    </li>
+                    <li class="li9">
+                        <a href="./康熙.html">清圣祖</a>
+                    </li>
+                    <li class="li10">
+                        <a href="./项羽.html">西楚霸王</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="图片墙">
+                <a href="./phone.html">
+                    <div class="phone">
+                        <i class="iconfont icon-xiaoxishangqiang"></i>
+                    </div>
+                    <div class="context">图片墙</div>
+                </a>
+                
+            </li>
+            <li class="寄语">
+                <a href="./good.html">
+                    <div class="phone">
+                        <i class="iconfont icon-mingshijiyu"></i>
+                    </div>
+                    <div class="context">寄语</div>
+                </a>
+                
+            </li>
+            </li>
+        </ul>
+    </div>
+    <script>
+        function validate() {
+            var v = document.getElementById("name1");
+            var pass = document.getElementById("pass1");
+            if (v.value.length >= 5) {
+                alert("输入个数太多");
+                return false;
+            }
+            else if (pass.value.length != 10) {
+                alert("输入学号位数不对");
+                return false;
+            } else {
+                alert("问卷提交完成！")
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

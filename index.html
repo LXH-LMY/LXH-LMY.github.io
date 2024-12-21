@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金龙</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        #myVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        #玉玺 {
+            width: 500px;
+            height: 600px;
+            position: absolute;
+            left: 35%;
+            height: 80%;
+            z-index: 100;
+            animation: fadeIn 10s forwards;
+            display:none;
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.1;
+            }
+
+            40% {
+                opacity: 0.2;
+            }
+
+            60% {
+                opacity: 0.3;
+            }
+
+            80% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #startButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            /* 确保按钮在最前面 */
+        }
+        #startButton{
+            font-size: 25px;
+            background-color: black;
+            color: aliceblue;
+            text-shadow: 0 0 30px #b62805;
+        }
+        #div_buttom{
+            position: absolute;
+            bottom: 0%;
+            width: 550px;
+            height: 100px;
+            left: 33%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-background">
+        <video id="myVideo">
+            <source src='./music/金龙.mp4' type="video/mp4">
+        </video>
+    </div>
+    <div id="phone">
+        <img src="./img/玉玺.jpg" id="玉玺" usemap="#map">
+    </div>
+    <div id="div_buttom"><button id="startButton">受命于天，既寿永昌</button><div>
+
+    <map name="map" id="map">
+        <area shape="rect" coords="150,80,400,200" href="./home.html" alt="首页">
+    </map>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function () {
+            var video = document.getElementById('myVideo');
+            var img = document.getElementById('玉玺');
+
+            img.style.display = 'block';
+            video.play();
+        });
+    </script>
+</body>
+
+</html>
